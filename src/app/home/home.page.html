@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="gray">
+      <h3>Home</h3>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-padding" style="background-color: black">
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        class="img_destaque ion-align-self-center"
+        size="12"
+        >
+        <label class="title">{{destaque.title}}</label>
+        <a [routerLink]="['/detalhes/13']" >
+        <ion-img src=" {{ destaque.photo_link }}"></ion-img>
+        </a>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col
+        *ngFor="let filme of filmes ; let i = index;"
+        (click)="detalhes(filme.id)"
+        size-xs="6"
+        size-md="3" >
+        <ion-img src="{{ filme.photo_link }}"></ion-img>
+        <div class="title">{{filme.title}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
