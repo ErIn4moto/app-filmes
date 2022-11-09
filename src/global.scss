@@ -17,7 +17,9 @@
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
 @import '~@ionic/angular/css/display.css';
-
+@import "./assets/flex/flex.css";
+@import "./assets/flex/flex-style.css";
+@import "./app/app.component.scss";
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
