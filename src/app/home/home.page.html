@@ -9,14 +9,19 @@
 <ion-content class="content-padding" style="background-color: black">
   <ion-grid>
     <ion-row>
+      <ion-col>
+        <a [routerLink]="['/cep']" >CEP</a>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col
         class="img_destaque ion-align-self-center"
         size="12"
         >
         <label class="title">{{destaque.title}}</label>
-        <a [routerLink]="['/detalhes/13']" >
+        
         <ion-img src=" {{ destaque.photo_link }}"></ion-img>
-        </a>
+        
       </ion-col>
     </ion-row>
     <ion-row>
@@ -29,5 +34,6 @@
         <div class="title">{{filme.title}}</div>
       </ion-col>
     </ion-row>
+
   </ion-grid>
 </ion-content>

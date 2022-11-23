@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CepPage implements OnInit {
 
+  cep: string ="";
+  estado:string="";
+  cidade:string="";
+  bairro:string="";
+  rua:string="";
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {  }
+
+  buscarEndereco(){
+    alert(this.cep);
   }
 
 }
