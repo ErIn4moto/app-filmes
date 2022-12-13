@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { FilmesService } from './service/filmes.service';
 
 const routes: Routes = [
   {
@@ -12,19 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  
   {
-    path: 'detalhes/:id',
-    resolve:{
-      info: FilmesService
-    },
-    loadChildren: () => import('./detalhes/detalhes.module').then( m => m.DetalhesPageModule)
+    path: 'detalhesfilme',
+    loadChildren: () => import('./detalhesfilme/detalhesfilme.module').then( m => m.DetalhesfilmePageModule)
   },
   {
     path: 'cep',
     loadChildren: () => import('./cep/cep.module').then( m => m.CepPageModule)
   },
-
 ];
 
 @NgModule({

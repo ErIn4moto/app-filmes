@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { ToastController } from '@ionic/angular';
-import { LoadingController } from '@ionic/angular';
-import { FilmesService } from '../service/filmes.service';
+import { FilmesService } from '../services/filmes.service';
+
 
 @Component({
   selector: 'app-home',
@@ -12,35 +11,66 @@ import { FilmesService } from '../service/filmes.service';
 })
 export class HomePage {
 
-  destaque: any =  [];
   filmes:any = [];
-    
+  destaque:any = [];
 
-    constructor(private alertController: AlertController,
-    public toastController: ToastController,
-    private loadingCtrl: LoadingController,
-    private filmesService: FilmesService,
-    private rota: Router) {}
-
-    ngOnInit(){
-      console.log('passou no home');
-       this.carregarFilmes();      
+  constructor(private alertController: AlertController,
+    private rota: Router,
+    private filmesservice: FilmesService) {}
+  
+   async ngOnInit()
+    {
+      console.log('passo no home');
+      //this.carregarFilme();
+      this.filmesservice.getProductions();
+      this.carregarFilmes();  
     }
-
+      
     async carregarFilmes(){
-      this.filmes  = await this.filmesService.getProductions();
+      this.filmes  = await this.filmesservice.getProductions();
       console.log("filmes carregados", this.filmes)
       const [firstKey] = Object.keys(this.filmes);
       this.destaque = this.filmes[firstKey];
-      console.log("filmes destaque", this.destaque)
       this.filmes.splice(firstKey, 1)
       console.log('firstKey',firstKey)
       console.log('destaque',this.destaque)
       console.log('filmes',this.filmes)
     }
-    
-  detalhesFilme(paramID){
-    console.log("passou "+paramID); 
-    this.rota.navigate(['/detalhes', {id:paramID}])
+
+
+
+  detalhesFilme(id)
+  {
+    console.log("passou"+id);
+    this.rota.navigate(['/detalhesfilme',{id:id}])
+   // this.detalhesfilme.pegarFilmes(paramID)
   }
-} 
+  pegaDetalls()
+  {
+    this.rota.navigate(['/detalhesfilme'])
+
+  }
+  pageHome()
+  {
+    this.rota.navigate(['/home'])
+
+  }
+  
+
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Important message',
+      message: 'This is an alert!',
+      buttons: ['OK'],
+    });
+  
+  
+  
+
+
+    await alert.present();
+  }
+
+}

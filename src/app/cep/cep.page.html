@@ -1,31 +1,35 @@
 <div class="flex-col children-center grow space-30">
   <fieldset class="flex-col space-30">
     <legend>Busca</legend>
-      <div class="flex-col">
-                <small>CEP</small>
-        <input type="text" placeholder="CEP" [(ngModel)]="cep">
-      </div>
-      <button class="button primary" (click)="buscarEndereco()">Buscar Endereço</button>
-    </fieldset> 
-  
-    <fieldset class="flex-col space-30 ">
-      <legend>Resultado</legend>
-        <div class="flex-col">          
-          <small>Estado</small>
-          <input type="text" placeholder="Estado" [(ngModel)]="estado">
-        </div>
-        <div class="flex-col">          
-          <small>Cidade</small>
-          <input type="text" placeholder="Cidade" [(ngModel)]="cidade">
-        </div>
-        <div class="flex-col">          
-          <small>Bairro</small>
-          <input type="text" placeholder="Bairro" [(ngModel)]="bairro">
-        </div>
-        <div class="flex-col">          
-          <small>Rua</small>
-          <input type="text" placeholder="Rua" [(ngModel)]="rua">
-        </div>          
-      </fieldset> 
-</div>
+    <div class="flex-col space-15">
+      <small>CEP</small>
+      <input type="text" placeholder="CEP" [(ngModel)] = "cep">
+    </div>
+    <button class="button primary" (click) = "buscarEndereco()">BUSCAR ENDEREÇO</button>
+  </fieldset>
 
+  <fieldset class="flex-col space-30">
+    <legend>RESULTADO</legend>
+
+    <div class = "flex-col space-15">
+      <small>Estado</small>
+      <input type="text" [(ngModel)] = "estado">
+    </div>
+
+    <div class = "flex-col space-15">
+      <small>Cidade</small>
+      <input type="text" [(ngModel)] = "cidade">
+    </div>
+
+    <div class = "flex-col space-15">  
+      <small>Bairro</small>
+      <input type="text" [(ngModel)] = "bairro">
+    </div>
+
+    <div class = "flex-col space-15">
+      <small>Rua</small>
+      <input type="text" [(ngModel)] = "rua">
+    </div>
+
+  </fieldset>
+</div>
